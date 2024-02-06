@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<style>
+		body {
+			background-color: #9e0b0f;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-position-y: bottom;
+			margin: 0;
+			padding: 0;
+			font-family: 'Arial', sans-serif;
+			color: #fff;
+		}
+
+		#image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+		}
+		.container {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    flex-direction: column;
+		    height: 100vh;
+		}
+
+		.greeting {
+		    text-align: center;
+		    padding: 20px;
+		    margin: 6px;
+		    border-radius: 10px;
+		    background-repeat: no-repeat;
+		    background-size: auto;
+		    background-position: center;
+		    background-position-y: 10px;
+		    background-color: white;
+		    box-shadow: 0 0 13px 1px #ff7373;
+		    max-width: 388px;
+		    color: #873737;
+		}
+
+			.buttons {
+		    margin-top: 20px;
+		    display: flex;
+		    justify-content: space-between;
+		    align-items: center;
+		    flex-direction: row;
+		}
+		.buttons > div {
+		    display: flex;
+		    justify-content: center;
+		    text-align: center;
+		    width: 100%;
+		}
+				button {
+					padding: 12px 18px;
+					margin: 0 10px;
+					font-size: 16px;
+					cursor: pointer;
+					background-color: #4CAF50;
+					color: #fff;
+					border: none;
+					border-radius: 5px;
+					transition: transform 1s ease-in-out;
+					text-align: center;
+					border: 1px px solid white;
+					box-shadow: 0 0 19px 9px white;
+				}
+			
+			
+			
+				#noBtn {
+					background-color: #120032;
+				}
+			
+				h1 {
+					font-size: 36px;
+					text-align: center;
+					margin: 50px 0;
+					animation: multiBlink 1s infinite;
+				}
+
+	</style>
+	<title>Quà Lì Xì Cho Người AE thiện lành</title>
+</head>
+<body>
+    
+	<div class="container">
+	    <center style="display:none"><audio id="myAudio" controls autoplay>
+    <source  src="xuandangtoi.mp3" >
+</audio></center>
+		<div class="greeting" id="main" >
+			<h1>Chào bạn đến năm mới rồi. Bạn có muốn nhận lì xì không?</h1>
+			<div class="buttons">
+			    <div>
+				<button id="yesBtn">NHẬN LÌ XÌ</button>
+				</div>
+				<div><button id="noBtn">KHÔNG NHẬN</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div> <img id="image" src="" alt=""></div>
+	<button style="background-color: #9e0b0f;" type="button" onclick="show()" id="btnID">Chút yêu thương</button>
+	<script>
+
+document.addEventListener('click', function() {
+    var audio = document.getElementById('myAudio');
+    if (audio.paused) {
+        audio.play();
+    }
+});
+
+		document.getElementById('yesBtn').addEventListener('mouseenter', function() {
+			moveButtonRandomly(this);
+		});
+
+		document.getElementById('yesBtn').addEventListener('click', function() {
+			moveButtonRandomly(this);
+		});
+		document.getElementById('noBtn').addEventListener('click', function() {
+			document.getElementById('main').innerHTML = "<br><br><br>Như vậy là bạn cùng gia đinh đã ấm no đong đầy<br><br>Nhân dịp năm mới, Chúc bạn cùng gia đình nhiều sức khỏe, gặp may mắn trong cuộc sống, và thuận lợi trong công việc. <h2>CHÚC MỪNG NĂM MỚI</h2><h3>Chưa hết bạn hãy lướt xuống dưới!</h3>";
+			
+		});
+		function moveButtonRandomly(button) {
+			const newX = Math.random() * (window.innerWidth - button.clientWidth);
+			const newY = Math.random() * (window.innerHeight - button.clientHeight);
+			      const distance = Math.sqrt(Math.pow(newX - noBtn.offsetLeft, 2) + Math.pow(newY - noBtn.offsetTop, 2));
+      if (distance < 100) {
+        moveButtonRandomly(button);
+        return;
+      }
+
+			button.style.position = 'absolute';
+			button.style.left = newX + 'px';
+			button.style.top = newY + 'px';
+		}
+		function show() {
+    let image = document.getElementById("image");
+    image.src = "tetden.jpg";
+    document.getElementById("btnID").style.display = "none";
+}
+
+	</script>
+</body>
+</html>
